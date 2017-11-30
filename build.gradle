@@ -27,6 +27,10 @@ scmVersion {
     useHighestVersion = true
     ignoreUncommittedChanges = true
     localOnly = true
+    branchVersionIncrementer = [
+        'feature/.*' : 'incrementMinor',
+        'bugfix/.*' : 'incrementPatch',
+    ]    
 }
 
 project.version = scmVersion.version
