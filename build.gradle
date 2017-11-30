@@ -30,7 +30,8 @@ scmVersion {
     branchVersionIncrementer = [
         'feature/.*' : 'incrementMinor',
         'bugfix/.*' : 'incrementPatch',
-    ]    
+    ]
+
 }
 
 project.version = scmVersion.version
