@@ -12,7 +12,7 @@
 
  reckon {
    normal = scopeFromProp()
-   preRelease = stageFromProp('milestone', 'rc', 'final')
+   preRelease = stageFromProp('alpha','milestone', 'rc', 'final')
    // alternately
    // preRelease = snapshotFromProp()
  }
