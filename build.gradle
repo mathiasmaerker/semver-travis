@@ -31,6 +31,9 @@ scmVersion {
         'feature/.*' : 'incrementMinor',
         'bugfix/.*' : 'incrementPatch',
     ]
+    branchVersionCreator = [
+        'feature/.*': { version, position -> 'rc1'},
+    ]
 
 }
 
