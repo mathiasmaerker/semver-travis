@@ -6,9 +6,16 @@
  * user guide available at https://docs.gradle.org/4.2.1/userguide/java_library_plugin.html
  */
  plugins {
-     id 'pl.allegro.tech.build.axion-release' version '1.8.1'
+   id 'org.ajoberstar.grgit' version '2.1.0'
+   id 'org.ajoberstar.reckon' version '0.3.0'
  }
 
+ reckon {
+   normal = scopeFromProp()
+   preRelease = stageFromProp('milestone', 'rc', 'final')
+   // alternately
+   // preRelease = snapshotFromProp()
+ }
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
 
@@ -19,25 +26,7 @@ repositories {
     jcenter()
 }
 
-scmVersion {
-    tag {
-    	prefix = 'v'
-		  versionSeparator = ''
-    }
-    useHighestVersion = true
-    ignoreUncommittedChanges = true
-    localOnly = true
-    branchVersionIncrementer = [
-        'feature/.*' : 'incrementMinor',
-        'bugfix/.*' : 'incrementPatch',
-    ]
-    branchVersionCreator = [
-        'develop/.*': { version, position -> 'rc1'}
-    ]
 
-}
-
-project.version = scmVersion.version
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
