@@ -32,7 +32,7 @@ scmVersion {
         'bugfix/.*' : 'incrementPatch',
     ]
     branchVersionCreator = [
-        'develop/.*': { version, position -> 'rc1'},
+        'develop/.*': { version, position -> 'rc1'}
     ]
 
 }
