@@ -1,6 +1,6 @@
 # SemVer Rules
 
-+ feature/.* branches increment the minorlevel (reackon default)
++ feature/.* branches increment the minorlevel (reckon default)
 + when feature is finished create tag
 
 ```
