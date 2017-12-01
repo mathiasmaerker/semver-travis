@@ -32,7 +32,7 @@ scmVersion {
         'bugfix/.*' : 'incrementPatch',
     ]
     branchVersionCreator = [
-        'feature/.*': { version, position -> 'rc1'},
+        'feature/.*': { version, position -> new StringBuilder(version.toString()).append('rc1').toString()}
     ]
 
 }
