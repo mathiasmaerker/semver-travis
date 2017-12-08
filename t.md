@@ -62,5 +62,5 @@ git push origin --tags
 when base version is rc we can't work further on develop because localy we have the rc version and can't incremnet patch or feature level:
 baseVersion = 0.2.0-rc.1
 next valid version is 0.2.0 (final version)
-only after that we can start patching/featuring
+only after that we can start patching/featuring pacth e.g 0.2.1 feature 0.3.0 etc.
 we could delete tags localy but that is a mess and leads to inconsitent versions and beacuse tags are sort of branch independent (though you have to merge them) if you fetch origin --tags you get ALL tags
