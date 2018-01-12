@@ -1,6 +1,6 @@
 language: java
 sudo: false
-install: flase
+install: false
 branches:
   only:
   - master
@@ -20,4 +20,4 @@ deploy:
   on:
     branch: master
 after_deploy:
-  - echo "Anything to do here?"     
+  - echo "Anything to do here?"
