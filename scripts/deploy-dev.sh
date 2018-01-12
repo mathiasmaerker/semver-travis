@@ -1,0 +1,2 @@
+set -ev
+echo "I am a TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST} and i come from TRAVIS_BRANCH: ${TRAVIS_BRANCH}"

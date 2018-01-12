@@ -1,9 +1,25 @@
 language: java
 sudo: false
 install: true
-branches:
-  only:
-  - master
-  - develop
 script:
-  - bash install-sdk-travis.sh
+  - sh $TRAVIS_BUILD_DIR/scripts/deploy-dev.sh
+before_deploy:
+  - echo "here i should Tag via reckon, write version files etc."
+deploy:
+  - provider: script
+    script: sh $TRAVIS_BUILD_DIR/scripts/deploy-dev.sh
+    skip_cleanup: true
+    on:
+      branch: develop
+  - provider: script
+    script: sh $TRAVIS_BUILD_DIR/scripts/deploy-integration.sh
+    skip_cleanup: true
+    on:
+      branch: /release.*/
+  - provider: script
+    script: sh $TRAVIS_BUILD_DIR/scripts/deploy-prod.sh
+    skip_cleanup: true
+    on:
+      branch: master
+after_deploy:
+  - echo "Anything to do here?"
