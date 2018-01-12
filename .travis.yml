@@ -1,6 +1,10 @@
 language: java
 sudo: false
 install: false
+branches:
+  only:
+  - master
+  - develop
 script:
   - bash install-sdk-travis.sh
 before_deploy:
@@ -10,10 +14,12 @@ deploy:
   script: scripts/deploy-dev.sh
   on:
     branch: develop
+    tags: false
 deploy:
   provider: script
   script: scripts/deploy-prod.sh
   on:
     branch: master
+    tags: false
 after_deploy:
   - echo "Anything to do here?"
