@@ -1,21 +1,18 @@
 language: java
 sudo: false
-install: false
+install: true
 script:
   - bash install-sdk-travis.sh
 before_deploy:
   - echo "here i should Tag via reckon, write version files etc."
 deploy:
-  provider: script
-  script: scripts/deploy-dev.sh
-  on:
-    branch: develop
-    tags: false
-deploy:
-  provider: script
-  script: scripts/deploy-prod.sh
-  on:
-    branch: master
-    tags: false
+  - provider: script
+    script: scripts/deploy-dev.sh
+    on:
+      branch: develop
+  - provider: script
+    script: scripts/deploy-prod.sh
+    on:
+      branch: master
 after_deploy:
   - echo "Anything to do here?"
