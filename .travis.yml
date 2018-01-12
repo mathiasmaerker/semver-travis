@@ -7,12 +7,12 @@ before_deploy:
   - echo "here i should Tag via reckon, write version files etc."
 deploy:
   - provider: script
-    script: scripts/deploy-dev.sh
+    script: sh $TRAVIS_BUILD_DIR/scripts/deploy-dev.sh
     skip_cleanup: true
     on:
       branch: develop
   - provider: script
-    script: scripts/deploy-prod.sh
+    script: sh $TRAVIS_BUILD_DIR/scripts/deploy-prod.sh
     skip_cleanup: true
     on:
       branch: master
